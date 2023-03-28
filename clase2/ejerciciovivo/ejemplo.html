@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let para variables, si se va a cambiar 
+        // const para constantes 
+        // const para objetos y arrays (evita cambio tipo)    
+        const persona = {
+            nombre: "Juan",
+            edad: 30
+        }
+        // persona = 10;
+        console.log(persona);
+        persona.nombre = "Carlos";
+        console.log(persona);
+        console.log(persona["edad"]);
+        console.log(persona.nombre);
+        const miVariable = "nombre";
+        console.log(persona[miVariable]);
+        persona.direccion = "Sarmiento 123 CABA";
+        console.log(persona);
+        delete persona.edad;
+        console.log(persona);
+    </script>
+</body>
+</html>

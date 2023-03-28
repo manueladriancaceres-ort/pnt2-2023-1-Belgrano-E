@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hola mundo");
+        // no es recomendable usar la palabra reservada var
+        var nvar = 10;
+        var nvar = "hola";
+        console.log(nvar);
+        // hay que usar let (es6)
+        let nVer = 100;
+        // let nVer = "prueba";
+        console.log(nVer);
+        // inmutabilidad de cadenas
+        const palabra = "algo";
+        palabra[0] = "A";
+        console.log(palabra);
+        // listas
+        const miLista = [3,-2,10,12];
+        console.log(miLista);
+        // miLista = "cambio";
+        miLista[0] = 1000;
+        console.log(miLista);
+
+        for(let i = 0; i < miLista.length; i++) {
+            if(miLista[i] > 10) {
+                console.log(miLista[i]);
+            }
+        }
+        // i esta fuera de alcance o scope, da error
+        // console.log(i);
+
+    </script>
+</body>
+</html>

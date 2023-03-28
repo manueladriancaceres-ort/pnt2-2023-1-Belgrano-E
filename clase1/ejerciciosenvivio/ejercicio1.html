@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const listaNumeros = [3,-2,3,10,12,-14,-8];
+        const resultados = [0,0,0,0,0];
+
+        for (let i = 0; i < listaNumeros.length; i++) {
+            if (listaNumeros[i] > 0) {
+                resultados[0]++;
+                resultados[2] += listaNumeros[i];
+            } else if (listaNumeros[i] < 0) {
+                resultados[1]++;
+                resultados[3] += listaNumeros[i];
+            }
+            if (listaNumeros[i] > 3) {
+                resultados[4]++;
+            }
+        }
+
+        console.log("Cantidad de positivos: " + resultados[0]);
+        console.log("Cantidad de negativos: " + resultados[1]);
+        console.log("Acumulado de positivos: " +resultados[2]);
+        console.log("Acumulado de negativos: " + resultados[3]);
+        console.log("Cantidad de números mayores a 3: " + resultados[4]);
+
+    </script>
+</body>
+</html>
