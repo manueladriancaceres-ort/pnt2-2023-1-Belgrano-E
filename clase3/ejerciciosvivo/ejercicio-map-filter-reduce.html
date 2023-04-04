@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // forma 1 (falta reduce)
+        const listaPreciosConIva = [2300, 2500, 5000, 10000, 1300];
+        console.log(listaPreciosConIva.map(e=>e*1.21).filter(n=>n>3000));
+
+        // forma 2 (falta reduce)
+        const numeros = [2300, 2500, 5000, 10000, 1300]
+        const multiplicadorIva = 1.21
+        const limite = 3000
+        const preciosIvaMayoresA = numeros.map(precio => precio * multiplicadorIva).filter(precio => precio > limite)
+        console.log(preciosIvaMayoresA)
+
+        // forma 3
+        const listaSinIva = [2300,2500,5000,10000,1300];
+        console.log(listaSinIva.map(n => n*1.21).filter(n=>n>3000).reduce((a,b) => a + b,0));
+
+    </script>
+</body>
+</html>

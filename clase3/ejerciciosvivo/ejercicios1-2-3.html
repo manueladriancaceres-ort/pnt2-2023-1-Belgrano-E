@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ejercicio 1
+        const numeros1 = [10, 2, 13, 60, 4, 6, 7];
+        const numerosMultXCinco = numeros1.map(n => n * 5);
+        console.log(numerosMultXCinco);
+        // ejercicio 2
+        const productos = [100, 120, 300, 230, 320];
+        let iva = 21;
+        const productosconiva = productos.map(numero => numero += (numero / 100 * 21))
+        console.log(productosconiva)
+        // ejercicio 3
+        const lista = [{id: 100,descripcion:"prov1",precio:1000},{id:102,descripcion:"prov2",precio:1300}];
+        const lista21= lista.map(m => {
+            return {id: m.id ,descripcion: m.descripcion ,precio: m.precio*1.21}
+        })
+        console.log(lista21);
+
+    </script>
+</body>
+
+</html>

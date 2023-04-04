@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ejercicio 1
+        // ejemplo 1
+        const nums = [1, 2, 3, 4, 5];
+        const filtar = (list, num) => list.filter(n => n < num);
+        console.log(filtar(nums, 4));
+
+        // ejemplo 2
+        const devolverNumerosMenores = (lista, limite) => {
+            return lista.filter(item => item < limite)
+        }
+        const numeros = [12, 90, -100, 300, 45, 1500, 23, 12000, -500]
+        const limite = 400
+        console.log(devolverNumerosMenores(numeros, limite))
+        // ejercicio 2
+        const ncs = [
+            { id: 100, descripcion: "prov1", precio: 1000 },
+            { id: 102, descripcion: "prov2", precio: 1300 },
+            { id: 103, descripcion: "prov3", precio: 600 }
+        ];
+        const nuevaLista = (lista, numero) => ((lista.filter(n => n.precio < numero)));
+        console.log(nuevaLista(ncs, 1200));
+
+    </script>
+</body>
+
+</html>

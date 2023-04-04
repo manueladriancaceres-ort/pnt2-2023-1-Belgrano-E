@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numeros = [3,4,15,20,10,2,1];
+        numeros.forEach(n => console.log(n));
+
+        console.log('sumo 10 a cada elemento'); 
+        console.log( numeros.map(numero=>numero+10) );
+
+        console.log('numeros menores que 18');
+        console.log( numeros.filter(n => n < 18));
+
+        console.log('suma de los numeros');
+        console.log(numeros.reduce((a,c)=>a+c,0));
+
+        const copiaNumeros = [...numeros];
+        console.log('Array numeros, ordenados');
+        console.log(copiaNumeros.sort());
+        const copiaNumerosOrdenNumerico = [...numeros].sort((a,b)=>a-b);
+        console.log(copiaNumerosOrdenNumerico);
+
+        const productos = [{id:1,descripcion:"Medias",precio:2500},
+        {id:2,descripcion:"Pantalon",precio:12500}];
+        productos.forEach(p => console.log(p))
+
+        console.log('incrementar el precio en 500'); 
+        console.log(productos.map( p => {
+            return { id: p.id, descripcion: p.descripcion, 
+                precio: p.precio+500 }
+        } ));
+
+        console.log('filtro productos mayores que 2500');
+        console.log(productos.filter(p => p.precio > 2500 ));
+
+        console.log('Suma de importes de productos');
+        console.log(productos.reduce((a,p)=>a+p.precio,300));
+
+        const productosPorPrecioMayoraMenor = [...productos]
+            .sort((a,b) =>  b.precio - a.precio  );
+        console.log(productosPorPrecioMayoraMenor);
+        
+
+    </script>
+</body>
+</html>
