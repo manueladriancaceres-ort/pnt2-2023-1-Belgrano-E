@@ -36,6 +36,14 @@
         const sumaTotalImportesMenoresA2500Menos20Porciento = recibos.filter(recibo => recibo.importe < 2500).reduce((acumulador, recibo) => acumulador + recibo.importe * 0.8, 0);
         console.log(sumaTotalImportesMenoresA2500Menos20Porciento);
 
+        // otra forma, filtrando dentro del reduce
+        const sumaTotalMenoresA2500 = recibos.reduce((acumulador, recibo) => {
+            if (recibo.importe < 2500) {
+                return acumulador + (recibo.importe * 0.8);
+            }
+            return acumulador;
+        }, 0);
+        
     </script>
 </body>
 
