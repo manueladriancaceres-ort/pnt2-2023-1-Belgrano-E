@@ -12,12 +12,12 @@
         <ul>
           <li v-for="cliente in clientes">
             {{ cliente.id }} - {{ cliente.nombre }} - {{ cliente.edad }}
-            <button @click="eliminarCliente(cliente)">Eliminar</button>
+            <button v-on:click="eliminarCliente(cliente)">Eliminar</button>
             <button @click="modificarCliente(cliente)">Modificar</button>
           </li>
         </ul>
         <hr>
-        <h3>Agregar Cliente:</h3>
+        <h3>Agregar/Modificar(segun lista) Cliente:</h3>
         <div>
           <label>ID:</label>
           <input type="number" v-model.number="nuevoCliente.id">
@@ -34,7 +34,6 @@
     </div>
       
     <script>
-        // Aquí es donde escribiremos nuestro código de Vue.js
         const app = Vue.createApp({
             data() {
                 return {
@@ -56,9 +55,7 @@
                     this.clientes.splice(index, 1);
                 },
                 modificarCliente(cliente) {
-                    // Aquí puedes implementar la lógica para modificar un cliente
                     const index = this.clientes.indexOf(cliente);
-                    console.log(index);
                     this.clientes[index].id = this.nuevoCliente.id;
                     this.clientes[index].nombre = this.nuevoCliente.nombre;
                     this.clientes[index].edad = this.nuevoCliente.edad;
