@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista de Clientes</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+          <li v-for="cliente in clientes">
+            {{ cliente.id }} - {{ cliente.nombre }} - {{ cliente.edad }}
+            <button @click="eliminarCliente(cliente)">Eliminar</button>
+            <button @click="modificarCliente(cliente)">Modificar</button>
+          </li>
+        </ul>
+        <hr>
+        <h3>Agregar Cliente:</h3>
+        <div>
+          <label>ID:</label>
+          <input type="number" v-model.number="nuevoCliente.id">
+        </div>
+        <div>
+          <label>Nombre:</label>
+          <input type="text" v-model="nuevoCliente.nombre">
+        </div>
+        <div>
+          <label>Edad:</label>
+          <input type="number" v-model.number="nuevoCliente.edad">
+        </div>
+        <button @click="agregarCliente()">Agregar</button>
+    </div>
+      
+    <script>
+        // Aquí es donde escribiremos nuestro código de Vue.js
+        const app = Vue.createApp({
+            data() {
+                return {
+                    clientes: [
+                        { id: 1, nombre: 'Juan', edad: 25 },
+                        { id: 2, nombre: 'Maria', edad: 30 },
+                        { id: 3, nombre: 'Pedro', edad: 40 }
+                    ],
+                    nuevoCliente: { id: null, nombre: '', edad: null }
+                }
+            },
+            methods: {
+                agregarCliente() {
+                    this.clientes.push({ ...this.nuevoCliente });
+                    this.nuevoCliente = { id: null, nombre: '', edad: null };
+                },
+                eliminarCliente(cliente) {
+                    const index = this.clientes.indexOf(cliente);
+                    this.clientes.splice(index, 1);
+                },
+                modificarCliente(cliente) {
+                    // Aquí puedes implementar la lógica para modificar un cliente
+                    const index = this.clientes.indexOf(cliente);
+                    console.log(index);
+                    this.clientes[index].id = this.nuevoCliente.id;
+                    this.clientes[index].nombre = this.nuevoCliente.nombre;
+                    this.clientes[index].edad = this.nuevoCliente.edad;
+                    this.nuevoCliente = { id: null, nombre: '', edad: null };
+                }
+            }
+        });
+
+        app.mount('#app');
+
+    </script>
+</body>
+
+</html>
