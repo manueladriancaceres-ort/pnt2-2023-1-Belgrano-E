@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="id">
+        <h2 v-if="ver" >{{titulo}}</h2>
+        Nuevo titulo <input type="text" v-model="titulo">
+        <button v-on:click="cambioTitulo">Cambio nombre al titulo</button>
+        <p :style="{color:miColor,fontSize:miFontSize}">{{ mensaje }}</p>        
+        <li v-for="prod in productos">
+           {{ prod.id }} {{ prod.desc }} {{ prod.precio }}
+        </li>
+        <button v-on:click="ordenarPorId">Ordenar lista por id</button>
+        <br/>
+        id <input v-model="producto.id">
+        Descripcion <input type="text" v-model="producto.desc">
+        Precio <input type="text" v-model="producto.precio">
+        <button v-on:click="agregarProducto" >Agregar producto</button>
+    </div>
+    <script>
+        const { createApp } = Vue
+        const obj = createApp({
+            data() {
+                return {
+                    titulo: 'Titulo',
+                    mensaje: 'Lista de productos',
+                    miColor: 'blue',
+                    miFontSize: '20px',
+                    ver:true,
+                    productos : [
+                        {id:5,desc:'Tuercas (kg)',precio:1000},
+                        {id:1,desc:'Tornillo Alem (kg)',precio:1000},
+                        {id:3,desc:'Tornillo Philps (kg)',precio:800},
+                        {id:2,desc:'Tornillo Tork (kg)',precio:900},
+                    ],
+                    producto : {
+                        id: 0, desc: '', precio: 0
+                    }
+                }
+            },
+            methods: {
+                cambioTitulo() {
+                    this.titulo = "Nuevo ejercicio con vue.js"
+                },
+                ordenarPorId() {
+                    this.productos.sort((a,b)=>a.id-b.id)
+                },
+                agregarProducto() {
+                    this.productos.push({...this.producto});
+                }
+            }
+        }).mount('#id')
+    </script>
+</body>
+
+</html>
